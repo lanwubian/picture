@@ -1,6 +1,5 @@
 package com.picture.service.impl;
 
-import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjUtil;
 import cn.hutool.core.util.StrUtil;
@@ -9,7 +8,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.picture.exception.BusinessException;
 import com.picture.exception.ErrorCode;
 import com.picture.model.dto.user.UserQueryRequest;
-import com.picture.model.entrty.User;
+import com.picture.model.entity.User;
 import com.picture.model.enums.UserRoleEnum;
 import com.picture.model.vo.user.LoginUserVO;
 import com.picture.model.vo.user.UserVO;
@@ -23,7 +22,6 @@ import org.springframework.util.DigestUtils;
 import javax.servlet.http.HttpServletRequest;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -190,8 +188,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         queryWrapper.like(StrUtil.isNotBlank(userAccount), "userAccount", userAccount);
         queryWrapper.like(StrUtil.isNotBlank(userName), "userName", userName);
         queryWrapper.like(StrUtil.isNotBlank(userProfile), "userProfile", userProfile);
-        queryWrapper.orderBy(StrUtil.isNotEmpty(sortField),sortOrder.equals("asceng"),sortField);
+        queryWrapper.orderBy(StrUtil.isNotEmpty(sortField),sortOrder.equals("ascend"),sortField);
         return queryWrapper;
+    }
+
+    @Override
+    public boolean isAdmin(User user) {
+        return user !=null && UserRoleEnum.ADMIN.getValue().equals(user.getUserRole());
     }
 
 }

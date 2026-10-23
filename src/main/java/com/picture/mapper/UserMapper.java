@@ -1,6 +1,6 @@
 package com.picture.mapper;
 
-import com.picture.model.entrty.User;
+import com.picture.model.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

@@ -2,7 +2,7 @@ package com.picture.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.picture.model.dto.user.UserQueryRequest;
-import com.picture.model.entrty.User;
+import com.picture.model.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.picture.model.vo.user.LoginUserVO;
 import com.picture.model.vo.user.UserVO;
@@ -53,4 +53,6 @@ public interface UserService extends IService<User> {
     List<UserVO> getUserVOList(List<User> userList);
 
     QueryWrapper<User> getQueryWrapper(UserQueryRequest userQueryRequest);
+
+    boolean isAdmin(User user);
 }

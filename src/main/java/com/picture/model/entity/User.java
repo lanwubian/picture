@@ -1,4 +1,4 @@
-package com.picture.model.entrty;
+package com.picture.model.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

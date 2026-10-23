@@ -10,7 +10,7 @@ import com.picture.exception.BusinessException;
 import com.picture.exception.ErrorCode;
 import com.picture.exception.ThrowUtils;
 import com.picture.model.dto.user.*;
-import com.picture.model.entrty.User;
+import com.picture.model.entity.User;
 import com.picture.model.vo.user.LoginUserVO;
 import com.picture.model.vo.user.UserVO;
 import com.picture.service.UserService;
